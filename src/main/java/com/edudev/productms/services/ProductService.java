@@ -49,7 +49,7 @@ public final class ProductService {
 
     public ProductDTO insert(final ProductDTO dto) {
         if (repository.existsById(dto.getId()))
-            throw new ConflictHttpException("Entidade com dados já cadastrados no banco");
+            throw new ConflictHttpException("Entidade com id já cadastrados no banco");
 
         Product product = new Product();
         dtoToProduct(dto, product);
@@ -59,7 +59,6 @@ public final class ProductService {
     }
 
     public ProductDTO update(final Long id, final ProductDTO dto) {
-
         final Product product = repository.findById(id).orElseThrow(NotFoundHttpException::new);
         dtoToProduct(dto, product);
 

@@ -16,6 +16,13 @@ public final class ProductDTO {
 
     private final BigDecimal price;
 
+    public ProductDTO() {
+        this.id = 0L;
+        this.name = "";
+        this.description = "";
+        this.price = ONE;
+    }
+
     public ProductDTO(final Product product) {
         this.id = product.getId();
         this.name = product.getName();

@@ -66,7 +66,7 @@ public final class ProductResource {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update(final @PathVariable Long id, final @RequestBody ProductDTO dto) {
+    public ResponseEntity<ProductDTO> update(final @PathVariable Long id, final @Valid @RequestBody ProductDTO dto) {
         var dtoUpdated = service.update(id, dto);
         return ResponseEntity.ok().body(dtoUpdated);
     }

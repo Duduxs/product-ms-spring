@@ -1,0 +1,31 @@
+services:
+  product-ms:
+    image: product-ms
+    container_name: product-ms
+    ports:
+      - 9999:9999
+    expose:
+      - 9999
+    depends_on:
+      - postgres
+    networks:
+      - bridge-network
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: product-ms
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    networks:
+      - bridge-network
+
+networks:
+  bridge-network:
+    driver: bridge
