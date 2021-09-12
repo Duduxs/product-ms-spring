@@ -30,8 +30,10 @@ public final class Product {
         this(0L, "", "", ONE);
     }
 
+    public Product(final Long id) { this.id = id; }
+
     public Product(final Long id, final String name, final String description, final BigDecimal price) {
-        this.id = id;
+        this(id);
         this.name = name;
         this.description = description;
         this.price = price;
